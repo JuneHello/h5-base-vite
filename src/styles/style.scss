@@ -1,0 +1,52 @@
+@import "./variables";
+
+// 全局样式
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  outline: none;
+}
+html {
+  padding: 0;
+  margin: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "PingFang SC", "PingFang SC-Medium", Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+}
+
+// 毛玻璃
+.frosted-glass {
+  backdrop-filter: blur(10px) opacity(0);
+  backdrop-filter: blur(10px);
+  transition: backdrop-filter 1s;
+}
+
+// 颜色
+@each $colorkey, $color in $colors {
+  .text-#{$colorkey} {
+    color: $color;
+  }
+
+  .bg-#{$colorkey} {
+    background-color: $color;
+  }
+}
+
+// 对齐
+@each $var in (left, center, right) {
+  .text-#{$var} {
+    text-align: $var !important;
+  }
+}
+
+// flex
+@each $key, $value in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $value;
+  }
+}

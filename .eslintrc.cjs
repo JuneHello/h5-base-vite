@@ -30,7 +30,7 @@ module.exports = {
     // eslint (http://eslint.cn/docs/rules)
     "no-var": "error", // 要求使用 let 或 const 而不是 var
     "no-multiple-empty-lines": ["error", { max: 1 }], // 不允许多个空行
-    "prefer-const": "error", // 使用 let 关键字声明但在初始分配后从未重新分配的变量，要求使用 const
+    "prefer-const": "error",
     "no-use-before-define": "off", // 禁止在 函数/类/变量 定义之前使用它们
 
     // typeScript (https://typescript-eslint.io/rules)
