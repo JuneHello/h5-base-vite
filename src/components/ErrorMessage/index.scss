@@ -1,0 +1,13 @@
+.not-container {
+  width: 100%;
+  height: 100%;
+  .not-img {
+    width: 100%;
+  }
+  .not-detail {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    user-select: none;
+  }
+}

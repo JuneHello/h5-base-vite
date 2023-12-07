@@ -1,27 +1,19 @@
-<script setup lang="ts">
-import HelloWorld from "@/components/HelloWorld.vue";
-</script>
-
 <template>
-  <div>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/icons/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite4 + Vue3" />
+  <router-view v-slot="{ Component, route }">
+    <transition appear name="fade-transform" mode="out-in">
+      <keep-alive :include="keepAliveName">
+        <component :is="Component" :key="route.fullPath" />
+      </keep-alive>
+    </transition>
+  </router-view>
 </template>
 
-<style lang="scss" scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<script setup lang="ts">
+import { storeToRefs } from "pinia";
+import { useKeepAliveStore } from "@/stores/modules/keepAlive";
+
+const keepAliveStore = useKeepAliveStore();
+const { keepAliveName } = storeToRefs(keepAliveStore);
+</script>
+
+<style scoped></style>

@@ -32,24 +32,6 @@ $font-sizes: (
   // 18px
   xxxl: 0.25 // 20px,,,,
 );
-
-// flex
-.d-flex {
-  display: flex;
-  .iconfont {
-    font-size: 16px !important;
-  }
-}
-.flex-column {
-  flex-direction: column;
-}
-.flex-wrap {
-  flex-wrap: wrap;
-}
-.flex-nowrap {
-  flex-wrap: nowrap;
-}
-
 $flex-jc: (
   start: flex-start,
   end: flex-end,
@@ -57,21 +39,6 @@ $flex-jc: (
   between: space-between,
   around: space-around,
   evenly: space-evenly
-);
-$flex-ai: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  stretch: stretch
-);
-.flex-1 {
-  flex: 1;
-}
-
-// spacing
-$spacing-types: (
-  m: margin,
-  p: padding
 );
 $spacing-directions: (
   t: top,

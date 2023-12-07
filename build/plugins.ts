@@ -6,6 +6,8 @@ import AutoImport from "unplugin-auto-import/vite";
 import ViteImages from "vite-plugin-vue-images";
 import { createHtmlPlugin } from "vite-plugin-html";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import Components from "unplugin-vue-components/vite";
+import { VantResolver } from "@vant/auto-import-resolver";
 
 export function createVitePlugins(viteEnv) {
   const {} = viteEnv;
@@ -15,6 +17,9 @@ export function createVitePlugins(viteEnv) {
     VueSetupExtend(),
     AutoImport({
       imports: ["vue"]
+    }),
+    Components({
+      resolvers: [VantResolver()]
     }),
     ViteImages({
       dirs: ["src/assets/images"] // 指明图片存放目录
@@ -33,7 +38,7 @@ export function createVitePlugins(viteEnv) {
           template: "index.html",
           injectOptions: {
             data: {
-              title: "index"
+              title: "vite"
             }
           }
         }
