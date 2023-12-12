@@ -10,14 +10,9 @@ declare module "vue" {
     403: (typeof import("./src/components/ErrorMessage/403.vue"))["default"];
     404: (typeof import("./src/components/ErrorMessage/404.vue"))["default"];
     500: (typeof import("./src/components/ErrorMessage/500.vue"))["default"];
-    FullScreen: (typeof import("./src/components/Loading/fullScreen.vue"))["default"];
     RouterLink: (typeof import("vue-router"))["RouterLink"];
     RouterView: (typeof import("vue-router"))["RouterView"];
     SvgIcon: (typeof import("./src/components/SvgIcon.vue"))["default"];
     VanButton: (typeof import("vant/es"))["Button"];
-    VanCell: (typeof import("vant/es"))["Cell"];
-    VanImage: (typeof import("vant/es"))["Image"];
-    VanPopup: (typeof import("vant/es"))["Popup"];
-    VanSearch: (typeof import("vant/es"))["Search"];
   }
 }

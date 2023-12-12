@@ -18,11 +18,9 @@ const router = createRouter({
 /**
  * @description: 路由拦截 beforeEach
  */
-router.beforeEach(async (to, from, next) => {
+router.beforeEach(async () => {
   // NProgress 开始
   NProgress.start();
-  // 正常访问页面
-  next();
 });
 
 /**
