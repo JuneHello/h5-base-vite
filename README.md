@@ -35,7 +35,7 @@
 ## 四、代码commit信息：
 
 - commit格式： <type>: <subject> ，subject是 commit 的简短描述，不能超过50个字符，且结尾不加英文句号。
-- 例如 git commit -m 'feat: 新增功能';
+- 例如 git commit -m 'feat:新增功能';
 - 标准类型，看commitlint.config.cjs文件的 rules -> type-enum
   feat：新功能（feature）
   fix：修补bug

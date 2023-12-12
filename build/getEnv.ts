@@ -17,7 +17,7 @@ export function wrapperEnv(envConf) {
   return ret;
 }
 
-export function createProxy(proxyList) {
+export function createProxy(proxyList = []) {
   const proxy = {};
   for (const [key, target] of proxyList) {
     const isHttps = /^https:\/\//.test(target);
