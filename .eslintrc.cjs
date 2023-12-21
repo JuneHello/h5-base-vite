@@ -31,7 +31,7 @@ module.exports = {
     "no-multiple-empty-lines": ["error", { max: 1 }], // 不允许多个空行
     "prefer-const": "error",
     "no-use-before-define": "off", // 禁止在 函数/类/变量 定义之前使用它们
-
+    "vue/comment-directive": "off",
     // typeScript (https://typescript-eslint.io/rules)
     "@typescript-eslint/no-unused-vars": "error", // 禁止定义未使用的变量
     "@typescript-eslint/no-empty-function": "error", // 禁止空函数
