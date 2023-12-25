@@ -14,7 +14,10 @@ export function createVitePlugins(viteEnv, command) {
   const {} = viteEnv;
   const isBuild = command === "build";
   return [
-    isBuild && legacy(),
+    isBuild &&
+      legacy({
+        targets: ["defaults", "chrome 52"]
+      }),
     vue(),
     eslintPlugin(),
     VueSetupExtend(),
