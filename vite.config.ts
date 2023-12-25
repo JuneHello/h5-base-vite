@@ -5,7 +5,7 @@ import { createVitePlugins } from "./build/plugins";
 const resolve = (dir: string) => path.join(__dirname, dir);
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
+export default defineConfig(({ mode, command }: ConfigEnv): UserConfig => {
   const env = loadEnv(mode, process.cwd(), "VITE_");
   const viteEnv = wrapperEnv(env);
   return {
@@ -27,7 +27,7 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
     //     scss: {}
     //   }
     // },
-    plugins: createVitePlugins(viteEnv),
+    plugins: createVitePlugins(viteEnv, command),
     esbuild: {
       pure: viteEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []
     },

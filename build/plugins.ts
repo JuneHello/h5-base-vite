@@ -8,10 +8,13 @@ import { createHtmlPlugin } from "vite-plugin-html";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import Components from "unplugin-vue-components/vite";
 import { VantResolver } from "@vant/auto-import-resolver";
+import legacy from "@vitejs/plugin-legacy";
 
-export function createVitePlugins(viteEnv) {
+export function createVitePlugins(viteEnv, command) {
   const {} = viteEnv;
+  const isBuild = command === "build";
   return [
+    isBuild && legacy(),
     vue(),
     eslintPlugin(),
     VueSetupExtend(),
