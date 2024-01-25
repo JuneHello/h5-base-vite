@@ -2,3 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 pnpm run lint:lint-staged
+echo -e "\033[31m ---ts类型检查开始--- \033[0m"
+pnpm run type-check
+echo -e "\033[31m ---ts类型检查结束--- \033[0m"

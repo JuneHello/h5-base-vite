@@ -10,12 +10,13 @@
     "build:pre": "vue-tsc && vite build --mode pre",
     "build:prd": "vue-tsc && vite build --mode production",
     "preview": "vite preview --port 8081",
+    "type-check": "vue-tsc --noEmit --skipLibCheck",
     "lint:eslint": "eslint --fix --ext .js,.ts,.vue ./src",
     "lint:prettier": "prettier --write \"src/**/*.{js,ts,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:stylelint": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged",
     "prepare": "husky install",
-    "commit": "git pull && git add -A && git-cz && git push"
+    "commit": "git add -A && git-cz"
   },
   "dependencies": {
     "axios": "^1.6.2",
