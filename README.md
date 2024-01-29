@@ -1,7 +1,7 @@
 ## 一、项目描述
 
+- 启动问题看FAQ.md
 - h5项目按照 比例设计。
-- 拉取项目之后，建议按照自己的功能区域重命名文件，现以简单的位置进行区分。
 - 项目环境： at least Node.js v16.14
 
 ## 二、项目启动
@@ -10,27 +10,6 @@
 - 打包测试：pnpm run build:test
 
 ## 三、vscode请安装Eslint prettier stylelint 插件
-
-- 打开VScode的设置，打开settings.json在里面配置一下代码，根据需求增减：
-
-  //开启自动修复
-  "editor.codeActionsOnSave": {
-  "source.fixAll": true, // 开启自动修复
-  "source.fixAll.stylelint": true, // 开启stylelint自动修复
-  },
-  // 配置stylelint检查的文件类型范围
-  "stylelint.validate": [
-  "css",
-  "less",
-  "postcss",
-  "scss",
-  "sass",
-  "vue"
-  ],
-  "stylelint.enable": true,
-  "css.validate": false,
-  "less.validate": false,
-  "scss.validate": false,
 
 ## 四、代码commit信息：
 
