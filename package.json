@@ -82,21 +82,14 @@
       "path": "node_modules/cz-git"
     }
   },
-  "browserslist": {
-    "production": [
-      "> 1%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 10 versions",
-      "ie >= 10",
-      "ie_mob >= 6",
-      "ff >= 10",
-      "chrome >= 51",
-      "safari >= 3",
-      "ios >= 10",
-      "android >= 4.0"
-    ]
-  }
+  "browserslist": [
+    "last 10 versions",
+    "ie >= 10",
+    "ie_mob >= 6",
+    "ff >= 10",
+    "chrome >= 51",
+    "safari >= 3",
+    "ios >= 10",
+    "android >= 4.0"
+  ]
 }
