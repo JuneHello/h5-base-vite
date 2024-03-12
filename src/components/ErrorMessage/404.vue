@@ -8,10 +8,12 @@
   </div>
 </template>
 
-<script setup lang="ts" name="404">
-import { ref } from "vue";
+<script setup lang="ts">
+import { ref, defineOptions } from "vue";
 import { showToast } from "vant";
-
+defineOptions({
+  name: "404"
+});
 const data = ref<string>("我是被复制的内容");
 const throttleClick = () => {
   showToast("我是节流按钮触发的事件");

@@ -9,8 +9,12 @@
   </div>
 </template>
 
-<script setup lang="ts" name="403">
+<script setup lang="ts">
+import { defineOptions } from "vue";
 import { useRouter } from "vue-router";
+defineOptions({
+  name: "403"
+});
 const router = useRouter();
 </script>
 

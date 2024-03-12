@@ -1,7 +1,6 @@
 import vue from "@vitejs/plugin-vue";
 import { resolve } from "path";
 import eslintPlugin from "vite-plugin-eslint";
-import VueSetupExtend from "vite-plugin-vue-setup-extend";
 import AutoImport from "unplugin-auto-import/vite";
 import ViteImages from "vite-plugin-vue-images";
 import { createHtmlPlugin } from "vite-plugin-html";
@@ -20,7 +19,6 @@ export function createVitePlugins(viteEnv, command) {
       }),
     vue(),
     eslintPlugin(),
-    VueSetupExtend(),
     AutoImport({
       imports: ["vue"]
     }),

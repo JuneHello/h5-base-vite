@@ -4,9 +4,11 @@
   </svg>
 </template>
 
-<script setup lang="ts" name="SvgIcon">
-import { computed, CSSProperties } from "vue";
-
+<script setup lang="ts">
+import { computed, CSSProperties, defineOptions } from "vue";
+defineOptions({
+  name: "SvgIcon"
+});
 interface SvgProps {
   name: string; // 图标的名称 ==> 必传
   prefix?: string; // 图标的前缀 ==> 非必传（默认为"icon"）
