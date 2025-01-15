@@ -6,8 +6,12 @@
 
 ## 二、项目启动
 
-- pnpm i -> pnpm run dev
+- pnpm i -> pnpm run start
 - 打包测试：pnpm run build:test
+
+## 项目注意事项
+
+- store文件夹里面的文件只能平铺，参考现有的文件；直接写文件就行，保存后会自动注册进store并赋值到storeToRefs。如果失败，看下helper文件夹下pinia-auto-refs.ts（不要人为修改）
 
 ## 三、vscode请安装Eslint prettier stylelint 插件
 

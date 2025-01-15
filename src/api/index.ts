@@ -1,43 +1,31 @@
-import { ResultEnum } from "@/api/helper/httpEnum";
+import { getCommonParams } from "@/api/helper/commonParams";
 import qs from "qs";
-import createAxiosByinterceptors from "./helper/axiosInstance";
+import { axiosInstance } from "./helper/axiosInstance";
 import { Http } from "./types";
 import { ContentTypeEnum } from "./helper/httpEnum";
 
-const defaultConfig = {
-  // 默认地址请求地址，可在 .env.** 文件中修改
-  baseURL: import.meta.env.VITE_API_URL as string,
-  // 设置超时时间
-  timeout: ResultEnum.TIMEOUT as number,
-  // 跨域时候允许携带凭证
-  withCredentials: true
-};
-const axiosInstance = createAxiosByinterceptors(defaultConfig);
-
 const http: Http = {
   get(url: string, params?: object, _object = {}) {
-    return axiosInstance.get(url, { params, ..._object });
+    return axiosInstance(url, "get", { ...params, ..._object, ...getCommonParams() });
   },
   post(url: string, params?: object, _object = {}) {
-    return axiosInstance.post(url, params, _object);
+    return axiosInstance(url, "post", { ...params, ..._object, ...getCommonParams() });
   },
   postForm(url: string, params?: object, _object = {}) {
-    return axiosInstance.post(url, qs.stringify(params), {
-      headers: { "Content-Type": ContentTypeEnum.FORM_URLENCODED },
-      ..._object
+    return axiosInstance(url, "post", qs.stringify({ ...params, ...getCommonParams(), ..._object }), {
+      "Content-Type": ContentTypeEnum.FORM_URLENCODED
     });
   },
   upload(url: string, params?: object, _object = {}) {
-    return axiosInstance.post(url, params, { headers: { "Content-Type": ContentTypeEnum.FORM_DATA }, ..._object });
+    return axiosInstance(
+      url,
+      "post",
+      { ...params, ..._object, ...getCommonParams() },
+      { "Content-Type": ContentTypeEnum.FORM_DATA }
+    );
   },
   download(url: string, params?: object, _object = {}) {
-    return axiosInstance.post(url, params, { ..._object, responseType: "blob" });
-  },
-  put(url: string, params?: object, _object = {}) {
-    return axiosInstance.put(url, params, _object);
-  },
-  delete(url: string, params?: object, _object = {}) {
-    return axiosInstance.delete(url, { params, ..._object });
+    return axiosInstance(url, "post", { params, ..._object, ...getCommonParams(), responseType: "blob" });
   }
 };
 // 请求例子

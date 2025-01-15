@@ -1,20 +1,9 @@
 // @see: https://cz-git.qbb.sh/zh/guide/
 /** @type {import('cz-git').UserConfig} */
 
-const fs = require("fs");
-const path = require("path");
-
-const scopes = fs
-  .readdirSync(path.resolve(__dirname, "src"), { withFileTypes: true })
-  .filter(dirent => dirent.isDirectory())
-  .map(dirent => dirent.name.replace(/s$/, ""));
-
-/** @type {import('cz-git').UserConfig} */
 module.exports = {
-  // ignores: [commit => commit.includes("init")],
   extends: ["@commitlint/config-conventional"],
   rules: {
-    // @see: https://commitlint.js.org/#/reference-rules
     "body-leading-blank": [2, "always"],
     "footer-leading-blank": [1, "always"],
     "header-max-length": [2, "always", 108],
@@ -25,41 +14,40 @@ module.exports = {
       2,
       "always",
       [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "perf",
-        "test",
-        "build",
-        "ci",
-        "chore",
-        "revert",
         "wip",
-        "workflow",
-        "types",
-        "release"
+        "perf",
+        "feat", // 一个新的特性
+        "fix", // 修复一个Bug
+        "docs", // 变更的只有文档
+        "refactor", // 代码重构，注意和特性、修复区分开
+        "style",
+        "test", // 添加一个测试
+        "build", // 修改项目构建系统配置
+        "ci", // 修改项目继续集成流程
+        "chore", // 改变构建流程、或者增加依赖库、工具等
+        "improvement", // 用于对当前实现进行改进而没有添加新功能或修复错误的提交
+        "merge", // 仅进行分支合并
+        "revert" // 回滚到上一个版本
       ]
     ]
   },
   prompt: {
     messages: {
       type: "选择你要提交的类型 :",
-      scope: "选择一个提交范围（可选）:",
+      scope: "选择一个提交范围（可选 = 直接按下Enter):",
       customScope: "请输入自定义的提交范围 :",
       subject: "填写简短精炼的变更描述 :\n",
       body: '填写更加详细的变更描述（可选）。使用 "|" 换行 :\n',
       breaking: '列举非兼容性重大的变更（可选）。使用 "|" 换行 :\n',
-      footerPrefixsSelect: "选择关联issue前缀（可选）:",
+      footerPrefixsSelect: "选择关联issue前缀(可选):",
       customFooterPrefixs: "输入自定义issue前缀 :",
       footer: "列举关联issue (可选) 例如: #31, #I3244 :\n",
       confirmCommit: "是否提交或修改commit ?"
     },
     types: [
-      { value: "wip", name: "开发:🧠开发中的代码", emoji: "🧠" },
       { value: "fix", name: "修复:🧩修复缺陷", emoji: "🧩" },
       { value: "feat", name: "功能:🚀新增功能", emoji: "🚀" },
+      { value: "wip", name: "开发:🧠开发中的代码", emoji: "🧠" },
       { value: "perf", name: "优化:⚡优化代码（提升性能、体验、算法等）", emoji: "⚡" },
       { value: "test", name: "测试:✅添加疏漏测试或已有测试改动", emoji: "✅" },
       { value: "style", name: "格式:🎨代码格式（不影响功能，例如空格、分号等格式修正）", emoji: "🎨" },
@@ -72,7 +60,7 @@ module.exports = {
     ],
     useEmoji: true,
     themeColorCode: "",
-    scopes: [...scopes],
+    scopes: [],
     allowCustomScopes: true,
     allowEmptyScopes: true,
     customScopesAlign: "bottom",

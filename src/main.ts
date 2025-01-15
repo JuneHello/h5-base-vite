@@ -3,7 +3,7 @@ import "virtual:svg-icons-register";
 // vue Router
 import router from "@/router";
 // pinia
-import pinia from "@/stores";
+import pinia from "@/store";
 // 按需引入组件样式 vant css
 import "vant/es/toast/style";
 import "vant/es/dialog/style";

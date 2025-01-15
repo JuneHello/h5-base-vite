@@ -4,7 +4,7 @@ import { RouteRecordRaw } from "vue-router";
  */
 export const staticRouter: RouteRecordRaw[] = [
   {
-    path: "/",
+    path: "/home",
     name: "home",
     component: () => import("@/views/home/home.vue"),
     meta: {

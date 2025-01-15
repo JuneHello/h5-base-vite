@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import { useKeepAliveStore } from "@/stores/modules/keepAlive";
+import useKeepAliveStore from "@/store/keepAlive";
 
 const keepAliveStore = useKeepAliveStore();
 const { keepAliveName } = storeToRefs(keepAliveStore);

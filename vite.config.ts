@@ -1,7 +1,8 @@
 import { defineConfig, loadEnv, ConfigEnv, UserConfig } from "vite";
 import path from "path";
-import { wrapperEnv, createProxy } from "./build/getEnv";
+import { wrapperEnv } from "./build/getEnv";
 import { createVitePlugins } from "./build/plugins";
+
 const resolve = (dir: string) => path.join(__dirname, dir);
 
 // https://vitejs.dev/config/
@@ -20,7 +21,16 @@ export default defineConfig(({ mode, command }: ConfigEnv): UserConfig => {
       port: viteEnv.VITE_PORT,
       open: false,
       cors: true,
-      proxy: createProxy(viteEnv.VITE_PROXY)
+      proxy: {
+        "^/api": {
+          target: viteEnv.VITE_PROXY_API_URL,
+          changeOrigin: true, // 开启代理
+          rewrite: path => path.replace(/^\/api/, ""),
+          headers: {
+            origin: viteEnv.VITE_ORIGIN
+          }
+        }
+      }
     },
     // css: {
     //   preprocessorOptions: {
@@ -28,6 +38,9 @@ export default defineConfig(({ mode, command }: ConfigEnv): UserConfig => {
     //   }
     // },
     plugins: createVitePlugins(viteEnv, command),
+    define: {
+      "process.env": process.env
+    },
     esbuild: {
       pure: viteEnv.VITE_DROP_CONSOLE ? ["console.log", "debugger"] : []
     },

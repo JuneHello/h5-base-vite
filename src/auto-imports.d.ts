@@ -6,12 +6,16 @@
 export {}
 declare global {
   const EffectScope: (typeof import("vue"))["EffectScope"];
+  const acceptHMRUpdate: (typeof import("pinia"))["acceptHMRUpdate"];
   const computed: (typeof import("vue"))["computed"];
   const createApp: (typeof import("vue"))["createApp"];
+  const createPinia: (typeof import("pinia"))["createPinia"];
   const customRef: (typeof import("vue"))["customRef"];
   const defineAsyncComponent: (typeof import("vue"))["defineAsyncComponent"];
   const defineComponent: (typeof import("vue"))["defineComponent"];
+  const defineStore: (typeof import("pinia"))["defineStore"];
   const effectScope: (typeof import("vue"))["effectScope"];
+  const getActivePinia: (typeof import("pinia"))["getActivePinia"];
   const getCurrentInstance: (typeof import("vue"))["getCurrentInstance"];
   const getCurrentScope: (typeof import("vue"))["getCurrentScope"];
   const h: (typeof import("vue"))["h"];
@@ -20,6 +24,11 @@ declare global {
   const isReactive: (typeof import("vue"))["isReactive"];
   const isReadonly: (typeof import("vue"))["isReadonly"];
   const isRef: (typeof import("vue"))["isRef"];
+  const mapActions: (typeof import("pinia"))["mapActions"];
+  const mapGetters: (typeof import("pinia"))["mapGetters"];
+  const mapState: (typeof import("pinia"))["mapState"];
+  const mapStores: (typeof import("pinia"))["mapStores"];
+  const mapWritableState: (typeof import("pinia"))["mapWritableState"];
   const markRaw: (typeof import("vue"))["markRaw"];
   const nextTick: (typeof import("vue"))["nextTick"];
   const onActivated: (typeof import("vue"))["onActivated"];
@@ -35,14 +44,18 @@ declare global {
   const onServerPrefetch: (typeof import("vue"))["onServerPrefetch"];
   const onUnmounted: (typeof import("vue"))["onUnmounted"];
   const onUpdated: (typeof import("vue"))["onUpdated"];
+  const onWatcherCleanup: (typeof import("vue"))["onWatcherCleanup"];
   const provide: (typeof import("vue"))["provide"];
   const reactive: (typeof import("vue"))["reactive"];
   const readonly: (typeof import("vue"))["readonly"];
   const ref: (typeof import("vue"))["ref"];
   const resolveComponent: (typeof import("vue"))["resolveComponent"];
+  const setActivePinia: (typeof import("pinia"))["setActivePinia"];
+  const setMapStoreSuffix: (typeof import("pinia"))["setMapStoreSuffix"];
   const shallowReactive: (typeof import("vue"))["shallowReactive"];
   const shallowReadonly: (typeof import("vue"))["shallowReadonly"];
   const shallowRef: (typeof import("vue"))["shallowRef"];
+  const storeToRefs: (typeof import("pinia"))["storeToRefs"];
   const toRaw: (typeof import("vue"))["toRaw"];
   const toRef: (typeof import("vue"))["toRef"];
   const toRefs: (typeof import("vue"))["toRefs"];
@@ -52,7 +65,11 @@ declare global {
   const useAttrs: (typeof import("vue"))["useAttrs"];
   const useCssModule: (typeof import("vue"))["useCssModule"];
   const useCssVars: (typeof import("vue"))["useCssVars"];
+  const useId: (typeof import("vue"))["useId"];
+  const useModel: (typeof import("vue"))["useModel"];
   const useSlots: (typeof import("vue"))["useSlots"];
+  const useStore: (typeof import("@/helper/pinia-auto-refs"))["useStore"];
+  const useTemplateRef: (typeof import("vue"))["useTemplateRef"];
   const watch: (typeof import("vue"))["watch"];
   const watchEffect: (typeof import("vue"))["watchEffect"];
   const watchPostEffect: (typeof import("vue"))["watchPostEffect"];
@@ -65,13 +82,17 @@ declare global {
     Component,
     ComponentPublicInstance,
     ComputedRef,
+    DirectiveBinding,
     ExtractDefaultPropTypes,
     ExtractPropTypes,
     ExtractPublicPropTypes,
     InjectionKey,
     PropType,
     Ref,
+    MaybeRef,
+    MaybeRefOrGetter,
     VNode,
     WritableComputedRef
   } from "vue";
+  import("vue");
 }

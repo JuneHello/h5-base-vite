@@ -22,3 +22,13 @@ export const getAuthButtonListApi = () => {
 export const logoutApi = () => {
   return http.post(`/logout`);
 };
+
+// api模式的接口
+export const agreementApi = (params: any) => {
+  return http.post<Login.agreementApi>(`/productOpen/queryProtocol`, { ...params }, { loading: false });
+};
+
+// map模式的接口
+export const saveAgreementApi = (params: any) => {
+  return http.post(`agree_protocol`, { ...params }, { loading: false });
+};

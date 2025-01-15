@@ -16,17 +16,3 @@ export function wrapperEnv(envConf) {
   }
   return ret;
 }
-
-export function createProxy(proxyList = []) {
-  const proxy = {};
-  for (const [key, target] of proxyList) {
-    const isHttps = /^https:\/\//.test(target);
-    proxy[key] = {
-      target,
-      changeOrigin: true,
-      ...(isHttps ? { secure: false } : {}),
-      rewrite: path => path.replace(/^\/api/, "")
-    };
-  }
-  return proxy;
-}

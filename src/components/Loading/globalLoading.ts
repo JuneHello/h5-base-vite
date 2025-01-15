@@ -37,4 +37,4 @@ export const createLoad = class createLoad {
     closeToast();
   }
 };
-export const globalLoading = new createLoad();
+export const globalLoading = new createLoad({});

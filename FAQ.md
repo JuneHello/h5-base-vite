@@ -16,10 +16,6 @@ Windows在换行的时候，同时使用了回车符CR(carriage-return character
 先设置：git config --global core.autocrlf false
 最后再拉项目
 
-## rpx单位
-
-rpx 即响应式px，一种根据屏幕宽度自适应的动态单位。以750宽的屏幕为基准，750rpx恰好为屏幕宽度。屏幕变宽，rpx 实际显示效果会等比放大，但在 App 端和 H5 端屏幕宽度达到 960px 时，默认将按照 375px 的屏幕宽度进行计算，具体配置参考：https://uniapp.dcloud.net.cn/collocation/pages.html#globalstyle
-
 ## vetur 提示组件引入报错
 
 **原因：**
