@@ -1,6 +1,6 @@
 ## 一、项目描述
 
-- 启动问题看FAQ.md
+- 启动问题看README-FAQ.md
 - h5项目按照 比例设计。
 - 项目环境： at least Node.js v16.14
 

@@ -1,5 +1,10 @@
 # 常见问题
 
+## 不想git在commit的时候进行ts类型检查
+
+**解决方法：**
+在.husky\pre-commit 文件中 删除 pnpm run type-check
+
 ## 启动后报Delete `␍`eslint(prettier/prettier)
 
 这是eslint校验换行格式发现的错误。

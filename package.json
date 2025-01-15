@@ -7,7 +7,7 @@
     "start": "vite",
     "start:test": "vite --mode test",
     "build:dev": "vue-tsc && vite build --mode development",
-    "build:test": "vue-tsc && vite build --mode test",
+    "build:test": "vite build --mode test",
     "build:pre": "vite build --mode pre",
     "build:prd": "vite build --mode production",
     "preview": "vite preview --port 8081",
